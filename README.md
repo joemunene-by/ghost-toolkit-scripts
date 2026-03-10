@@ -1,5 +1,11 @@
 # Ghost Toolkit Scripts 👻
-
+## Quick Install
+```bash
+git clone https://github.com/joemunene-by/ghost-toolkit-scripts.git
+cd ghost-toolkit-scripts
+chmod +x ghost_setup.sh
+./ghost_setup.sh
+```
 A collection of bash scripts for automating setup, monitoring, and launching the Ghost cybersecurity toolkit.
 
 ## Scripts
