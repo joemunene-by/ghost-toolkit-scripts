@@ -6,19 +6,21 @@ TOOLS_DIR="$SCRIPT_DIR/tools"
 show_main_menu() {
     clear
     echo "=============================================="
-    echo "       GHOST TOOLKIT LAUNCHER v2.0          "
+    echo "       GHOST TOOLKIT LAUNCHER v3.0          "
+    echo "           60+ Security Tools              "
     echo "=============================================="
     echo ""
-    echo "  [N]  Network Tools"
-    echo "  [W]  Web Security Tools"
-    echo "  [P]  Password Attacks"
-    echo "  [E]  Exploitation Tools"
-    echo "  [F]  Forensics & OSINT"
-    echo "  [U]  Utilities"
-    echo "  [G]  Ghost Repos (joemunene-by)"
+    echo "  [N]  Network Tools          (9 tools)"
+    echo "  [W]  Web Security Tools     (7 tools)"
+    echo "  [P]  Password Attacks      (5 tools)"
+    echo "  [E]  Exploitation Tools    (6 tools)"
+    echo "  [F]  Forensics & OSINT     (6 tools)"
+    echo "  [D]  Defense & Monitoring  (3 tools)"
+    echo "  [U]  Utilities             (7 tools)"
+    echo "  [G]  Ghost Repos           (15 tools)"
     echo "  [M]  System Monitor"
-    echo "  [D]  Disk Usage"
-    echo "  [UPD] Update All Tools"
+    echo "  [DISK]  Disk Usage"
+    echo "  [UPD]  Update All Tools"
     echo "  [0]  Exit"
     echo "=============================================="
     echo -n "  Select category: "
@@ -27,15 +29,17 @@ show_main_menu() {
 show_network_menu() {
     clear
     echo "=============================================="
-    echo "         NETWORK TOOLS                      "
+    echo "         NETWORK TOOLS (9)                  "
     echo "=============================================="
     echo "  [1]  Nmap Pro (Fast/Full/Stealth/Vuln)"
-    echo "  [2]  Directory Scanner (dirb/gobuster)"
-    echo "  [3]  SSL/TLS Analyzer"
-    echo "  [4]  Subdomain Enumerator"
-    echo "  [5]  Advanced Port Scanner"
-    echo "  [6]  DNS Lookup & Domain Intelligence"
-    echo "  [7]  Network Traffic Analyzer"
+    echo "  [2]  Masscan (Fast port scanner)"
+    echo "  [3]  ARP Scanner"
+    echo "  [4]  Directory Scanner (dirb/gobuster)"
+    echo "  [5]  SSL/TLS Analyzer"
+    echo "  [6]  Subdomain Enumerator"
+    echo "  [7]  DNS Enumerator"
+    echo "  [8]  Advanced Port Scanner"
+    echo "  [9]  DNS Lookup & Domain Intelligence"
     echo "  [0]  Back to Main Menu"
     echo "=============================================="
     echo -n "  Select tool: "
@@ -44,13 +48,15 @@ show_network_menu() {
 show_web_menu() {
     clear
     echo "=============================================="
-    echo "       WEB SECURITY TOOLS                   "
+    echo "       WEB SECURITY TOOLS (7)               "
     echo "=============================================="
     echo "  [1]  SQL Injection (sqlmap)"
     echo "  [2]  Web Vulnerability Scanner (nikto)"
-    echo "  [3]  Port Scanner (Web UI)"
-    echo "  [4]  Vulnerability Scanner"
-    echo "  [5]  Simple Vulnerabilities Scanner"
+    echo "  [3]  CMS Scanner (droopescan)"
+    echo "  [4]  WhatWeb (fingerprinting)"
+    echo "  [5]  WPScan (WordPress)"
+    echo "  [6]  Port Scanner (Web UI)"
+    echo "  [7]  Vulnerability Scanner"
     echo "  [0]  Back to Main Menu"
     echo "=============================================="
     echo -n "  Select tool: "
@@ -59,12 +65,13 @@ show_web_menu() {
 show_password_menu() {
     clear
     echo "=============================================="
-    echo "       PASSWORD ATTACKS                     "
+    echo "       PASSWORD ATTACKS (5)                 "
     echo "=============================================="
     echo "  [1]  Hydra Bruteforce"
     echo "  [2]  Hash Identifier"
     echo "  [3]  Hash Cracker (Dictionary)"
     echo "  [4]  MAC Spoofer"
+    echo "  [5]  WiFi Tool"
     echo "  [0]  Back to Main Menu"
     echo "=============================================="
     echo -n "  Select tool: "
@@ -73,12 +80,14 @@ show_password_menu() {
 show_exploit_menu() {
     clear
     echo "=============================================="
-    echo "       EXPLOITATION TOOLS                   "
+    echo "       EXPLOITATION TOOLS (6)               "
     echo "=============================================="
     echo "  [1]  Reverse Shell Generator"
     echo "  [2]  Payload Encoder"
-    echo "  [3]  Keylogger"
-    echo "  [4]  SentinelPulse Dashboard"
+    echo "  [3]  Metasploit Helper"
+    echo "  [4]  Responder (LLMNR/NBT-NS)"
+    echo "  [5]  LinPEAS (Linux privesc)"
+    echo "  [6]  Keylogger"
     echo "  [0]  Back to Main Menu"
     echo "=============================================="
     echo -n "  Select tool: "
@@ -87,12 +96,27 @@ show_exploit_menu() {
 show_forensics_menu() {
     clear
     echo "=============================================="
-    echo "       FORENSICS & OSINT                     "
+    echo "       FORENSICS & OSINT (6)                 "
     echo "=============================================="
     echo "  [1]  Image Forensics"
-    echo "  [2]  Steganography Tool"
-    echo "  [3]  Metadata Scrubber"
-    echo "  [4]  Caesar Cipher Tool"
+    echo "  [2]  Strings Analyzer"
+    echo "  [3]  Volatility (Memory)"
+    echo "  [4]  Steganography Tool"
+    echo "  [5]  Metadata Scrubber"
+    echo "  [6]  Caesar Cipher Tool"
+    echo "  [0]  Back to Main Menu"
+    echo "=============================================="
+    echo -n "  Select tool: "
+}
+
+show_defense_menu() {
+    clear
+    echo "=============================================="
+    echo "       DEFENSE & MONITORING (3)              "
+    echo "=============================================="
+    echo "  [1]  Process Monitor"
+    echo "  [2]  Log Watcher"
+    echo "  [3]  File Integrity Checker"
     echo "  [0]  Back to Main Menu"
     echo "=============================================="
     echo -n "  Select tool: "
@@ -101,12 +125,15 @@ show_forensics_menu() {
 show_utilities_menu() {
     clear
     echo "=============================================="
-    echo "           UTILITIES                          "
+    echo "           UTILITIES (7)                      "
     echo "=============================================="
     echo "  [1]  Password Generator"
     echo "  [2]  Network Recon"
-    echo "  [3]  Hash Calculator"
-    echo "  [4]  Base64 Encoder/Decoder"
+    echo "  [3]  File Hasher"
+    echo "  [4]  Port Knocker"
+    echo "  [5]  Tor Setup"
+    echo "  [6]  Pentest Oneliners"
+    echo "  [7]  Base64 Converter"
     echo "  [0]  Back to Main Menu"
     echo "=============================================="
     echo -n "  Select tool: "
@@ -140,12 +167,14 @@ show_ghost_menu() {
 launch_network_tool() {
     case $1 in
         1) bash "$TOOLS_DIR/network/ghost_nmap.sh" ;;
-        2) bash "$TOOLS_DIR/network/ghost_dirb.sh" ;;
-        3) bash "$TOOLS_DIR/network/ghost_ssl.sh" ;;
-        4) bash "$TOOLS_DIR/network/ghost_subdomain.sh" ;;
-        5) cd ~/ghost_toolkit/advanced-port-scanner && python3 main.py ;;
-        6) cd ~/ghost_toolkit/DNS-Lookup-and-Domain-Intelligence-Tool && python3 main.py ;;
-        7) cd ~/ghost_toolkit/Network-Traffic-Analyzer && sudo python3 main.py ;;
+        2) bash "$TOOLS_DIR/network/ghost_masscan.sh" ;;
+        3) bash "$TOOLS_DIR/network/ghost_arp.sh" ;;
+        4) bash "$TOOLS_DIR/network/ghost_dirb.sh" ;;
+        5) bash "$TOOLS_DIR/network/ghost_ssl.sh" ;;
+        6) bash "$TOOLS_DIR/network/ghost_subdomain.sh" ;;
+        7) bash "$TOOLS_DIR/network/ghost_dnsenum.sh" ;;
+        8) cd ~/ghost_toolkit/advanced-port-scanner && python3 main.py ;;
+        9) cd ~/ghost_toolkit/DNS-Lookup-and-Domain-Intelligence-Tool && python3 main.py ;;
     esac
 }
 
@@ -153,9 +182,11 @@ launch_web_tool() {
     case $1 in
         1) bash "$TOOLS_DIR/web/ghost_sqlmap.sh" ;;
         2) bash "$TOOLS_DIR/web/ghost_nikto.sh" ;;
-        3) cd ~/ghost_toolkit/Port-scanner && npm start ;;
-        4) cd ~/ghost_toolkit/Vulnerabilities-Scanner && python3 main.py ;;
-        5) cd ~/ghost_toolkit/Simple-Vulnerabilities-Scanner && python3 main.py ;;
+        3) bash "$TOOLS_DIR/web/ghost_cms.sh" ;;
+        4) bash "$TOOLS_DIR/web/ghost_whatweb.sh" ;;
+        5) bash "$TOOLS_DIR/web/ghost_wpscan.sh" ;;
+        6) cd ~/ghost_toolkit/Port-scanner && npm start ;;
+        7) cd ~/ghost_toolkit/Vulnerabilities-Scanner && python3 main.py ;;
     esac
 }
 
@@ -165,6 +196,7 @@ launch_password_tool() {
         2) bash "$TOOLS_DIR/password/ghost_hashid.sh" ;;
         3) cd ~/ghost_toolkit/Hash-Cracker-Dictionary-Brute- && python3 main.py ;;
         4) cd ~/ghost_toolkit/mac-spoofer && sudo python3 main.py ;;
+        5) bash "$TOOLS_DIR/password/ghost_wifi.sh" ;;
     esac
 }
 
@@ -172,17 +204,29 @@ launch_exploit_tool() {
     case $1 in
         1) bash "$TOOLS_DIR/exploitation/ghost_shell.sh" ;;
         2) bash "$TOOLS_DIR/exploitation/ghost_encoder.sh" ;;
-        3) cd ~/ghost_toolkit/Key-logger && sudo python3 main.py ;;
-        4) cd ~/ghost_toolkit/sentinelpulse && npm run dev ;;
+        3) bash "$TOOLS_DIR/exploitation/ghost_msf.sh" ;;
+        4) bash "$TOOLS_DIR/exploitation/ghost_responder.sh" ;;
+        5) bash "$TOOLS_DIR/exploitation/ghost_linpeas.sh" ;;
+        6) cd ~/ghost_toolkit/Key-logger && sudo python3 main.py ;;
     esac
 }
 
 launch_forensics_tool() {
     case $1 in
         1) bash "$TOOLS_DIR/forensics/ghost_forensics.sh" ;;
-        2) cd ~/ghost_toolkit/Steganography-tool && python3 main.py ;;
-        3) cd ~/ghost_toolkit/metadata-scrubber-tool && npm start ;;
-        4) cd ~/ghost_toolkit/Caesa-Cipher-Tool && python3 main.py ;;
+        2) bash "$TOOLS_DIR/forensics/ghost_strings.sh" ;;
+        3) bash "$TOOLS_DIR/forensics/ghost_volatility.sh" ;;
+        4) cd ~/ghost_toolkit/Steganography-tool && python3 main.py ;;
+        5) cd ~/ghost_toolkit/metadata-scrubber-tool && npm start ;;
+        6) cd ~/ghost_toolkit/Caesa-Cipher-Tool && python3 main.py ;;
+    esac
+}
+
+launch_defense_tool() {
+    case $1 in
+        1) bash "$TOOLS_DIR/defense/ghost_procmon.sh" ;;
+        2) bash "$TOOLS_DIR/defense/ghost_logwatch.sh" ;;
+        3) bash "$TOOLS_DIR/defense/ghost_integrity.sh" ;;
     esac
 }
 
@@ -190,6 +234,11 @@ launch_utility_tool() {
     case $1 in
         1) bash "$TOOLS_DIR/utilities/ghost_passgen.sh" ;;
         2) bash "$TOOLS_DIR/utilities/ghost_recon.sh" menu ;;
+        3) bash "$TOOLS_DIR/utilities/ghost_hasher.sh" ;;
+        4) bash "$TOOLS_DIR/utilities/ghost_portknock.sh" ;;
+        5) bash "$TOOLS_DIR/utilities/ghost_tor.sh" ;;
+        6) bash "$TOOLS_DIR/utilities/ghost_oneliners.sh" ;;
+        7) bash "$TOOLS_DIR/exploitation/ghost_encoder.sh" ;;
     esac
 }
 
@@ -263,6 +312,15 @@ while true; do
                 echo ""; echo "Press Enter to continue..."; read
             done
             ;;
+        D|d)
+            while true; do
+                show_defense_menu
+                read def_choice
+                [ "$def_choice" = "0" ] && break
+                launch_defense_tool "$def_choice"
+                echo ""; echo "Press Enter to continue..."; read
+            done
+            ;;
         U|u)
             while true; do
                 show_utilities_menu
@@ -284,7 +342,7 @@ while true; do
         M|m)
             bash "$SCRIPT_DIR/ghost_monitor.sh"
             ;;
-        D|d)
+        DISK|disk)
             bash "$SCRIPT_DIR/diskwarn2.sh"
             ;;
         UPD|upd|update)
