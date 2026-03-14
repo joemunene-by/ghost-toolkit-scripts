@@ -56,7 +56,7 @@ RUN apt-get update && apt-get install -y \
     exiftool \
     foremost \
     imagemagick \
-    strings \
+    binutils \
     && rm -rf /var/lib/apt/lists/*
 
 # Install other tools
