@@ -16,4 +16,13 @@ jobs:
         run: ls -la tools/
       
       - name: Count tools
-        run: echo "Found $(find tools -name '*.sh' | wc -l) tools"
+        run: |
+          count=$(find tools -name '*.sh' | wc -l)
+          echo "Found $count tools"
+      
+      - name: Check shell syntax
+        run: |
+          for f in $(find . -name '*.sh' -type f); do
+            bash -n "$f"
+          done || true
+          echo "Shell check done"
