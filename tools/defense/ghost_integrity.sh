@@ -3,6 +3,7 @@
 MODE="check"
 BASELINE=""
 DIRECTORY=""
+# shellcheck disable=SC2034
 ALERT=""
 
 while [[ $# -gt 0 ]]; do

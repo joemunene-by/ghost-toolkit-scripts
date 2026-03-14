@@ -1,6 +1,7 @@
 #!/bin/bash
 
 TARGET=""
+# shellcheck disable=SC2034
 TEMPLATES="latest"
 SEVERITY="critical,high,medium"
 RATE=150

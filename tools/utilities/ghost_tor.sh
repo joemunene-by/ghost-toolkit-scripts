@@ -2,6 +2,7 @@
 
 ACTION=""
 PORT=9050
+# shellcheck disable=SC2034
 IP=""
 
 while [[ $# -gt 0 ]]; do

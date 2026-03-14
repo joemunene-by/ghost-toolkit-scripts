@@ -26,7 +26,7 @@ done
 
 echo ""
 echo "[*] Updating toolkit scripts..."
-cd ~/ghost_toolkit_scripts 2>/dev/null || cd "$(dirname "$0")/.."
+cd ~/ghost_toolkit_scripts 2>/dev/null || cd "$(dirname "$0")/.." || exit
 git pull 2>/dev/null || echo "[!] Scripts: update failed"
 
 echo ""

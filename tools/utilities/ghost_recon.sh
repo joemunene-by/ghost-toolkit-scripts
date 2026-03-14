@@ -8,7 +8,7 @@ echo ""
 discover_hosts() {
     local subnet="$1"
     echo "[*] Scanning subnet: $subnet"
-    arp-scan -l --interface=$(ip route | grep default | awk '{print $5}' | head -1) 2>/dev/null || \
+    arp-scan -l --interface="$(ip route | grep default | awk '{print $5}' | head -1)" 2>/dev/null || \
     nmap -sn "$subnet/24" -oG - | grep "Host:" | awk '{print $2,$3}'
 }
 

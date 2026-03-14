@@ -1,9 +1,11 @@
 #!/bin/bash
 
 TARGET=""
+# shellcheck disable=SC2034
 PORT=""
 SCAN_TYPE="fast"
 
+# shellcheck disable=SC2034
 while [[ $# -gt 0 ]]; do
     case $1 in
         -t|--target) TARGET="$2"; shift 2 ;;
@@ -50,31 +52,31 @@ echo ""
 case $SCAN_TYPE in
     fast)
         echo "[*] Running fast scan..."
-        nmap -T4 -F -oN ~/ghost_toolkit/scans/nmap_fast_$(date +%Y%m%d_%H%M%S).txt "$TARGET"
+        nmap -T4 -F -oN "$HOME/ghost_toolkit/scans/nmap_fast_$(date +%Y%m%d_%H%M%S).txt" "$TARGET"
         ;;
     full)
         echo "[*] Running full port scan..."
-        nmap -p- -oN ~/ghost_toolkit/scans/nmap_full_$(date +%Y%m%d_%H%M%S).txt "$TARGET"
+        nmap -p- -oN "$HOME/ghost_toolkit/scans/nmap_full_$(date +%Y%m%d_%H%M%S).txt" "$TARGET"
         ;;
     stealth)
         echo "[*] Running stealth SYN scan..."
-        sudo nmap -sS -T2 -oN ~/ghost_toolkit/scans/nmap_stealth_$(date +%Y%m%d_%H%M%S).txt "$TARGET"
+        sudo nmap -sS -T2 -oN "$HOME/ghost_toolkit/scans/nmap_stealth_$(date +%Y%m%d_%H%M%S).txt" "$TARGET"
         ;;
     udp)
         echo "[*] Running UDP scan..."
-        sudo nmap -sU -oN ~/ghost_toolkit/scans/nmap_udp_$(date +%Y%m%d_%H%M%S).txt "$TARGET"
+        sudo nmap -sU -oN "$HOME/ghost_toolkit/scans/nmap_udp_$(date +%Y%m%d_%H%M%S).txt" "$TARGET"
         ;;
     xmas)
         echo "[*] Running Xmas scan..."
-        sudo nmap -sX -oN ~/ghost_toolkit/scans/nmap_xmas_$(date +%Y%m%d_%H%M%S).txt "$TARGET"
+        sudo nmap -sX -oN "$HOME/ghost_toolkit/scans/nmap_xmas_$(date +%Y%m%d_%H%M%S).txt" "$TARGET"
         ;;
     service)
         echo "[*] Running service detection scan..."
-        nmap -sV -sC -oN ~/ghost_toolkit/scans/nmap_service_$(date +%Y%m%d_%H%M%S).txt "$TARGET"
+        nmap -sV -sC -oN "$HOME/ghost_toolkit/scans/nmap_service_$(date +%Y%m%d_%H%M%S).txt" "$TARGET"
         ;;
     vuln)
         echo "[*] Running vulnerability scan..."
-        nmap --script vuln -oN ~/ghost_toolkit/scans/nmap_vuln_$(date +%Y%m%d_%H%M%S).txt "$TARGET"
+        nmap --script vuln -oN "$HOME/ghost_toolkit/scans/nmap_vuln_$(date +%Y%m%d_%H%M%S).txt" "$TARGET"
         ;;
 esac
 

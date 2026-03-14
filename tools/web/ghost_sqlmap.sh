@@ -52,12 +52,12 @@ $COLS && OPTS="$OPTS --columns"
 $DUMP && OPTS="$OPTS --dump-all"
 
 if command -v sqlmap &> /dev/null; then
-    sqlmap -u "$TARGET" $OPTS --output-dir=~/ghost_toolkit/scans/sqlmap_$(date +%Y%m%d_%H%M%S)
+    sqlmap -u "$TARGET" $OPTS --output-dir="~/ghost_toolkit/scans/sqlmap_$(date +%Y%m%d_%H%M%S)"
 else
     echo "[!] sqlmap not found!"
     echo "[*] Installing sqlmap..."
     sudo apt install -y sqlmap
-    sqlmap -u "$TARGET" $OPTS --output-dir=~/ghost_toolkit/scans/sqlmap_$(date +%Y%m%d_%H%M%S)
+    sqlmap -u "$TARGET" $OPTS --output-dir="~/ghost_toolkit/scans/sqlmap_$(date +%Y%m%d_%H%M%S)"
 fi
 
 echo ""

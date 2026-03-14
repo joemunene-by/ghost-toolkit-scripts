@@ -17,7 +17,7 @@ check_dependencies() {
             echo "[+] $tool is installed"
         else
             echo "[-] $tool is MISSING — adding to install list..."
-            missing+=($tool)
+            missing+=("$tool")
         fi
     done
 
@@ -31,7 +31,7 @@ check_dependencies() {
 clone_repos() {
     echo "[*] Cloning Ghost Toolkit repositories..."
     mkdir -p ~/ghost_toolkit
-    cd ~/ghost_toolkit
+    cd ~/ghost_toolkit || exit
 
     repos=(
         "https://github.com/joemunene-by/Port-scanner"
@@ -78,7 +78,7 @@ install_dependencies() {
 
         if [ -f "$dir/package.json" ]; then
             echo "[+] Node project detected — running npm install..."
-            cd $dir && npm install && cd ~/ghost_toolkit
+            cd "$dir" && npm install && cd ~/ghost_toolkit || exit
         fi
     done
     echo ""

@@ -3,8 +3,10 @@
 TARGET=""
 WORDLIST="/usr/share/wordlists/dns.txt"
 BRUTE=false
+# shellcheck disable=SC2034
 TRANSFER=false
 
+# shellcheck disable=SC2034
 while [[ $# -gt 0 ]]; do
     case $1 in
         -d|--domain) TARGET="$2"; shift 2 ;;

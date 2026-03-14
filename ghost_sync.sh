@@ -11,7 +11,8 @@ SKIPPED=0
 
 sync_repo() {
     local repo_path=$1
-    local repo_name=$(basename $repo_path)
+    local repo_name
+    repo_name=$(basename "$repo_path")
 
     echo "[*] Checking $repo_name..."
 
@@ -22,7 +23,7 @@ sync_repo() {
         return
     fi
 
-    cd $repo_path
+    cd "$repo_path" || return
 
     # Check if there's anything to commit
     if git diff --quiet && git diff --cached --quiet; then
@@ -30,7 +31,7 @@ sync_repo() {
 
         # Check for unpushed commits
         LOCAL=$(git rev-parse HEAD)
-        REMOTE=$(git rev-parse @{u} 2>/dev/null)
+        REMOTE=$(git rev-parse "@{u}" 2>/dev/null)
 
         if [ "$LOCAL" = "$REMOTE" ]; then
             echo "[✓] $repo_name — already up to date"
@@ -55,7 +56,7 @@ sync_repo() {
         ((FAILED++))
     fi
 
-    cd ~
+    cd ~ || return
 }
 
 # Sync all ghost toolkit repos

@@ -44,15 +44,15 @@ EXTRA_OPTS="-t $THREADS"
 
 if command -v dirb &> /dev/null; then
     echo "[*] Running dirb..."
-    dirb "$TARGET" "$WORDLIST" -o ~/ghost_toolkit/scans/dirb_$(date +%Y%m%d_%H%M%S).txt
+    dirb "$TARGET" "$WORDLIST" -o "$HOME/ghost_toolkit/scans/dirb_$(date +%Y%m%d_%H%M%S).txt"
 elif command -v gobuster &> /dev/null; then
     echo "[*] Running gobuster..."
-    gobuster dir -u "$TARGET" -w "$WORDLIST" -t $THREADS ${EXTENSIONS:+-x $EXTENSIONS} -o ~/ghost_toolkit/scans/gobuster_$(date +%Y%m%d_%H%M%S).txt
+    gobuster dir -u "$TARGET" -w "$WORDLIST" -t $THREADS ${EXTENSIONS:+-x $EXTENSIONS} -o "$HOME/ghost_toolkit/scans/gobuster_$(date +%Y%m%d_%H%M%S).txt"
 else
     echo "[!] Neither dirb nor gobuster found!"
     echo "[*] Installing gobuster..."
     sudo apt install -y gobuster
-    gobuster dir -u "$TARGET" -w "$WORDLIST" -t $THREADS ${EXTENSIONS:+-x $EXTENSIONS} -o ~/ghost_toolkit/scans/gobuster_$(date +%Y%m%d_%H%M%S).txt
+    gobuster dir -u "$TARGET" -w "$WORDLIST" -t $THREADS ${EXTENSIONS:+-x $EXTENSIONS} -o "$HOME/ghost_toolkit/scans/gobuster_$(date +%Y%m%d_%H%M%S).txt"
 fi
 
 echo ""

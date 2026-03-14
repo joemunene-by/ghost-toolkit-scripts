@@ -50,6 +50,7 @@ else
     echo "[!] gospider not found"
     echo "[*] Installing gospider..."
     GO111MODULE=on go install github.com/jaeles-project/gospider@latest
-    export PATH=$PATH:$(go env GOPATH)/bin
+    GOBIN=$(go env GOPATH)/bin
+    export PATH=$PATH:$GOBIN
     gospider -s "$TARGET" -d "$DEPTH" -o "$OUTPUT" --json
 fi

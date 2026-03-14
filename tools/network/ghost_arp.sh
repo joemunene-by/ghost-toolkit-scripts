@@ -37,15 +37,15 @@ echo ""
 case $MODE in
     quick)
         echo "[*] Quick scan..."
-        arp-scan -I "$INTERFACE" -l 2>/dev/null | grep -v "^Starting\|^Interface\|^Ending\|^ packets" | tee ~/ghost_toolkit/scans/arp_quick_$(date +%Y%m%d_%H%M%S).txt
+        arp-scan -I "$INTERFACE" -l 2>/dev/null | grep -v "^Starting\|^Interface\|^Ending\|^ packets" | tee "$HOME/ghost_toolkit/scans/arp_quick_$(date +%Y%m%d_%H%M%S).txt"
         ;;
     aggressive)
         echo "[*] Aggressive scan (including vendor lookup)..."
-        arp-scan -I "$INTERFACE" -l --vendormacs 2>/dev/null | tee ~/ghost_toolkit/scans/arp_aggressive_$(date +%Y%m%d_%H%M%S).txt
+        arp-scan -I "$INTERFACE" -l --vendormacs 2>/dev/null | tee "$HOME/ghost_toolkit/scans/arp_aggressive_$(date +%Y%m%d_%H%M%S).txt"
         ;;
     scan|*)
         echo "[*] Standard scan..."
-        sudo arp-scan -I "$INTERFACE" -g "$SUBNET/24" 2>/dev/null | tee ~/ghost_toolkit/scans/arp_$(date +%Y%m%d_%H%M%S).txt
+        sudo arp-scan -I "$INTERFACE" -g "$SUBNET/24" 2>/dev/null | tee "$HOME/ghost_toolkit/scans/arp_$(date +%Y%m%d_%H%M%S).txt"
         ;;
 esac
 

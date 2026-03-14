@@ -2,9 +2,11 @@
 
 FILE=""
 EXTRACT=false
+# shellcheck disable=SC2034
 BRUTE=false
 OUTPUT=""
 
+# shellcheck disable=SC2034
 while [[ $# -gt 0 ]]; do
     case $1 in
         -f|--file) FILE="$2"; shift 2 ;;

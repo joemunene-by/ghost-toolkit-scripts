@@ -53,6 +53,7 @@ else
     echo "[!] dalfox not found"
     echo "[*] Installing dalfox..."
     GO111MODULE=on go install github.com/hahwul/dalfox/v2@latest
-    export PATH=$PATH:$(go env GOPATH)/bin
+    GOBIN=$(go env GOPATH)/bin
+    export PATH=$PATH:$GOBIN
     dalfox url "$TARGET" --format json --output "$OUTPUT.json"
 fi

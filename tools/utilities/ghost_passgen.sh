@@ -35,9 +35,9 @@ CHARS="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 echo ""
 
-for i in $(seq 1 $COUNT); do
+for _i in $(seq 1 $COUNT); do
     PASSWORD=""
-    for j in $(seq 1 $LENGTH); do
+    for _j in $(seq 1 $LENGTH); do
         PASSWORD="${PASSWORD}${CHARS:$((RANDOM % ${#CHARS})):1}"
     done
     echo "$PASSWORD"

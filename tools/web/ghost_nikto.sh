@@ -2,6 +2,7 @@
 
 TARGET=""
 OUTPUT=""
+# shellcheck disable=SC2034
 TIMEOUT=5
 
 while [[ $# -gt 0 ]]; do

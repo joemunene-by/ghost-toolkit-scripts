@@ -22,8 +22,8 @@ case "${1:-build}" in
             --network host \
             --cap-add NET_ADMIN \
             --cap-add NET_RAW \
-            -v $(pwd)/scans:/scans \
-            -v $(pwd)/payloads:/payloads \
+            -v "$(pwd)/scans:/scans" \
+            -v "$(pwd)/payloads:/payloads" \
             $IMAGE_NAME
         ;;
     start)

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 TARGET=""
+# shellcheck disable=SC2034
 MODE="enumerate"
 USER=""
 PLUGINS=false

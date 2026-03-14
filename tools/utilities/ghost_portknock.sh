@@ -9,14 +9,14 @@ while [[ $# -gt 0 ]]; do
         -h|--host) HOST="$2"; shift 2 ;;
         -p|--ports) PORTS="$2"; shift 2 ;;
         -m|--method) METHOD="$2"; shift 2 ;;
-        -h|--help)
+        --help)
             echo "Usage: $0 -h <host> -p <ports> [options]"
             echo ""
             echo "Options:"
             echo "  -h, --host <ip>         Target host"
             echo "  -p, --ports <ports>     Ports (comma or range: 7000,8000,9000)"
             echo "  -m, --method <method>   tcp|udp"
-            echo "  -h, --help             Show this help"
+            echo "  --help                 Show this help"
             exit 0 ;;
         *) shift ;;
     esac

@@ -1,3 +1,4 @@
+#!/bin/bash
 # Ghost Toolkit Shell Aliases
 # Add to ~/.bashrc or ~/.zshrc: source /path/to/ghost_aliases.sh
 
@@ -87,18 +88,18 @@ export GHOST_REPORTS=$GHOST_HOME/reports
 
 # ===== Functions =====
 ghost-quick-scan() {
-    nmap -T4 -F "$1" -oN $GHOST_SCANS/nmap_quick_$(date +%Y%m%d).txt
+    nmap -T4 -F "$1" -oN "$GHOST_SCANS/nmap_quick_$(date +%Y%m%d).txt"
 }
 
 ghost-full-scan() {
-    nmap -p- -sV -sC -oN $GHOST_SCANS/nmap_full_$(date +%Y%m%d).txt "$1"
+    nmap -p- -sV -sC -oN "$GHOST_SCANS/nmap_full_$(date +%Y%m%d).txt" "$1"
 }
 
 ghost-web-scan() {
     echo "[*] Running nikto..."
-    nikto -h "$1" -o $GHOST_SCANS/nikto_$(date +%Y%m%d).txt
+    nikto -h "$1" -o "$GHOST_SCANS/nikto_$(date +%Y%m%d).txt"
     echo "[*] Running nuclei..."
-    nuclei -u "$1" -severity critical,high,medium -json -o $GHOST_SCANS/nuclei_$(date +%Y%m%d).json
+    nuclei -u "$1" -severity critical,high,medium -json -o "$GHOST_SCANS/nuclei_$(date +%Y%m%d).json"
 }
 
 ghost-shell() {
