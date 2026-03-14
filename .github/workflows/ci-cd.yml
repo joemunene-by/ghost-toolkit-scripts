@@ -12,8 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: List directories
-        run: ls -la tools/
+      - name: Check directories
+        run: |
+          test -d tools/network
+          test -d tools/web
+          test -d tools/password
+          echo "Directories OK"
       
-      - name: List tool files
-        run: find tools -name "*.sh" | head -20
+      - name: Count tools
+        run: |
+          count=$(find tools -name "*.sh" | wc -l)
+          echo "Found $count tools"
