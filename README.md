@@ -185,11 +185,156 @@ sudo ./ghost_setup.sh
 ./tools/network/ghost_nmap.sh -t 192.168.1.1 -s fast
 ```
 
+### Using Shell Aliases
+
+```bash
+# Source the aliases file
+source config/ghost_aliases.sh
+
+# Now use quick commands
+gnmap -t 192.168.1.1 -s fast    # Nmap scan
+gsql -t "http://target.com" --dbs  # SQLMap
+gshell -l 10.10.10.10 -p 4444     # Generate shell
+greport -c "Company" -t "target.com"  # Generate report
+```
+
+### Cloud Lab Deployment
+
+```bash
+# Deploy practice lab on AWS
+cd terraform
+terraform init
+terraform apply
+
+# Or DigitalOcean
+cd terraform
+terraform init -backend-config="token=YOUR_DO_TOKEN"
+terraform apply
+```
+
 ---
 
-## 🛠️ Tool Categories
+## 🐳 Docker Usage
 
-### Network Tools (9)
+Run Ghost Toolkit in an isolated Docker container:
+
+```bash
+# Build the Docker image
+./docker-ghost.sh build
+
+# Run interactively
+./docker-ghost.sh run
+
+# Start services (with docker-compose)
+./docker-ghost.sh start
+
+# Get shell inside container
+./docker-ghost.sh shell
+
+# View logs
+./docker-ghost.sh logs
+
+# Stop services
+./docker-ghost.sh stop
+
+# Clean up
+./docker-ghost.sh clean
+```
+
+### Docker Options
+
+| Command | Description |
+|---------|-------------|
+| `build` | Build Docker image |
+| `run` | Run container interactively |
+| `start` | Start with docker-compose |
+| `stop` | Stop services |
+| `shell` | Get shell access |
+| `logs` | View container logs |
+| `clean` | Remove containers & image |
+
+### Docker Features
+
+- Pre-installed security tools
+- SecLists wordlists included
+- Ghost repos cloned
+- Non-root user (ghost)
+- Persistent volumes for scans/payloads
+
+---
+
+## ☁️ Cloud Lab Deployment
+
+Deploy a practice penetration testing environment:
+
+### AWS
+
+```bash
+cd terraform
+terraform init
+terraform plan
+terraform apply
+```
+
+Creates:
+- VPC with public/private subnets
+- Attack machine (Kali/Ubuntu with Ghost Toolkit)
+- Target machines (web app, Linux)
+- Security groups configured
+
+### DigitalOcean
+
+```bash
+cd terraform
+export DO_TOKEN=your_token
+terraform init
+terraform apply
+```
+
+---
+
+## 🔧 Shell Aliases
+
+Quick commands for fast access:
+
+```bash
+# Source aliases
+source config/ghost_aliases.sh
+
+# Network tools
+gnmap -t 192.168.1.1 -s fast    # Nmap quick scan
+gmasscan                          # Masscan
+garp                             # ARP scanner
+gdirb                            # Directory busting
+gssl                             # SSL analysis
+
+# Web tools
+gsql -t "http://target" --dbs   # SQLMap
+gnikto                           # Nikto scan
+gnuclei                          # Nuclei scan
+gdalfox                         # XSS scanner
+gwpscan                         # WordPress scan
+
+# Exploitation
+gshell -l IP -p 4444            # Generate reverse shell
+gmsf                            # Metasploit helper
+glinpeas                        # Linux privesc
+gpspy                           # Process spy
+
+# Utilities
+gpassgen -l 20                  # Generate passwords
+grecon target.com               # Reconnaissance
+greport -c "Company" -t "target" # Generate report
+
+# Main scripts
+ghost                           # Launch menu
+ghost-update                    # Update all
+ghost-monitor                   # System monitor
+```
+
+---
+
+## 📊 Tool Categories
 
 | Tool | Description | Use Case |
 |------|-------------|----------|
