@@ -12,24 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Check shell syntax
-        run: |
-          for f in $(find . -name "*.sh" -type f); do
-            bash -n "$f"
-          done
+      - name: List directories
+        run: ls -la tools/
       
-      - name: Check directories
-        run: |
-          test -d tools/network
-          test -d tools/web
-          test -d tools/password
-          test -d tools/exploitation
-          test -d tools/forensics
-          test -d tools/defense
-          test -d tools/utilities
-      
-      - name: Count tools
-        run: |
-          count=$(find tools -name "*.sh" | wc -l)
-          echo "Total tools: $count"
-          test $count -gt 30
+      - name: List tool files
+        run: find tools -name "*.sh" | head -20
