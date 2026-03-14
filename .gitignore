@@ -41,3 +41,27 @@ logs/
 .env.production
 *.pem
 *.key
+*.crt
+*.csr
+
+# Ghost Toolkit
+scans/
+payloads/
+reports/
+ghost.log
+*.scan
+*.output
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+
+# Docker
+.docker/
+
+# Temporary
+tmp/
+temp/
+*.tmp

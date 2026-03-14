@@ -1,0 +1,20 @@
+# Code Owners
+# This file defines who owns what in this repository
+
+# Default owner
+* @joemunene-by
+
+# Tool categories
+tools/network/* @joemunene-by
+tools/web/* @joemunene-by
+tools/password/* @joemunene-by
+tools/exploitation/* @joemunene-by
+tools/forensics/* @joemunene-by
+tools/defense/* @joemunene-by
+tools/utilities/* @joemunene-by
+
+# Infrastructure
+.github/* @joemunene-by
+terraform/* @joemunene-by
+Dockerfile @joemunene-by
+docker-compose.yml @joemunene-by

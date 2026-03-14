@@ -2,10 +2,22 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Made%20for-Pentesters-blue?style=for-the-badge&logo=security" alt="Pentesters">
-  <img src="https://img.shields.io/badge/Tools-60%2B-green?style=for-the-badge" alt="60+ Tools">
+  <img src="https://img.shields.io/badge/Tools-70%2B-green?style=for-the-badge" alt="70+ Tools">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/Platform-Linux%20%7C%20macOS-orange?style=for-the-badge" alt="Platform">
+  <img src="https://img.shields.io/badge/Docker-Supported-blue?style=for-the-badge&logo=docker" alt="Docker">
+  <img src="https://img.shields.io/badge/Terraform-Cloud%20Labs-green?style=for-the-badge&logo=terraform" alt="Terraform">
 </p>
+
+<p align="center">
+  <a href="https://github.com/joemunene-by/ghost-toolkit-scripts/stargazers"><img src="https://img.shields.io/github/stars/joemunene-by/ghost-toolkit-scripts?style=social" alt="Stars"></a>
+  <a href="https://github.com/joemunene-by/ghost-toolkit-scripts/fork"><img src="https://img.shields.io/github/forks/joemunene-by/ghost-toolkit-scripts?style=social" alt="Forks"></a>
+  <a href="https://github.com/joemunene-by/ghost-toolkit-scripts/issues"><img src="https://img.shields.io/github/issues/joemunene-by/ghost-toolkit-scripts" alt="Issues"></a>
+</p>
+
+---
+
+**Keywords:** penetration-testing, security-tools, ethical-hacking, cybersecurity, nmap, sqlmap, metasploit, kali-linux, network-scanner, vulnerability-scanner, pentest-toolkit, security-framework, infosec, hacking-tools, oscp-prep, bug-bounty, recon, exploitation, forensics
 
 ---
 
