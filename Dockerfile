@@ -53,7 +53,7 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update && apt-get install -y \
     steghide \
     binwalk \
-    exiftool \
+    libimage-exiftool-perl \
     foremost \
     imagemagick \
     binutils \

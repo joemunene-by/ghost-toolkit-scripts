@@ -90,7 +90,7 @@ jobs:
     - name: Run ShellCheck
       uses: ludeeus/action-shellcheck@master
       with:
-        severity: "warning"
+        severity: "error"
     
     - name: Check for secrets
       uses: trufflesecurity/trufflehog@main
@@ -111,7 +111,7 @@ jobs:
     - name: Update README stats
       run: |
         tool_count=$(find tools -name "ghost_*.sh" -type f | wc -l)
-        echo "## 🛠️ Toolkit Statistics" > stats.md
+        echo "## \U0001F6E0\uFE0F Toolkit Statistics" > stats.md
         echo "- **Total Tools:** $tool_count" >> stats.md
         echo "- **Last Updated:** $(date)" >> stats.md
         cat stats.md
@@ -132,6 +132,6 @@ jobs:
     - name: Summary
       run: |
         echo "## Ghost Toolkit CI Results" 
-        echo "✅ Tests: ${{ needs.test.result }}"
-        echo "✅ Docker: ${{ needs.docker-build.result }}"
-        echo "✅ Security: ${{ needs.security-scan.result }}"
+        echo "\u2705 Tests: ${{ needs.test.result }}"
+        echo "\u2705 Docker: ${{ needs.docker-build.result }}"
+        echo "\u2705 Security: ${{ needs.security-scan.result }}"

@@ -1,3 +1,4 @@
+#!/bin/bash
 # Ghost Toolkit Shell Aliases
 # Add to ~/.bashrc or ~/.zshrc: source /path/to/ghost_aliases.sh
 
