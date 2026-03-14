@@ -1,0 +1,87 @@
+version: '3.8'
+
+services:
+  ghost-toolkit:
+    build: .
+    container_name: ghost-toolkit
+    image: ghost-toolkit:latest
+    hostname: ghost-pentest
+    restart: unless-stopped
+    
+    # Network capabilities for scanning
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    
+    environment:
+      - GHOST_USER=ghost
+      - GHOST_HOME=/root/ghost_toolkit
+      - DISPLAY=${DISPLAY}
+    
+    volumes:
+      # Persist scan results
+      - ghost-scans:/scans
+      - ghost-payloads:/payloads
+      - ghost-toolkit:/root/ghost_toolkit
+      
+      # Share config
+      - ./config:/ghost_scripts/config:ro
+      
+      # Optional: share wordlists
+      - /usr/share/wordlists:/usr/share/wordlists:ro
+      
+      # X11 socket for GUI apps (optional)
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    
+    # Network mode for host scanning
+    network_mode: host
+    
+    # Privileged for packet capture
+    privileged: true
+    
+    # Mount this directory for easy file access
+    working_dir: /ghost_scripts
+    
+    stdin_open: true
+    tty: true
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "test", "-f", "/ghost_scripts/ghost_launcher.sh"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Optional: Web launcher service
+  ghost-web:
+    build: .
+    container_name: ghost-toolkit-web
+    image: ghost-toolkit:latest
+    restart: unless-stopped
+    
+    command: python3 -m http.server 8080
+    
+    ports:
+      - "8080:8080"
+    
+    volumes:
+      - ghost-scans:/scans:ro
+      - ghost-toolkit:/root/ghost_toolkit:ro
+    
+    network_mode: host
+    depends_on:
+      - ghost-toolkit
+
+volumes:
+  ghost-scans:
+    driver: local
+  ghost-payloads:
+    driver: local
+  ghost-toolkit:
+    driver: local
+
+networks:
+  default:
+    name: ghost-network
+    driver: bridge

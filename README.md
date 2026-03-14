@@ -132,36 +132,50 @@ Ghost Toolkit supports all phases of penetration testing!
 ## ✨ Features
 
 - **60+ Security Tools** - Comprehensive coverage of all pentesting needs
+- **Docker Support** - Run in isolated containers anywhere
+- **Cloud Lab Templates** - Deploy practice environments on AWS/DigitalOcean
 - **Automated Setup** - One-command installation of all tools and dependencies
 - **Interactive Launcher** - User-friendly menu system for easy tool access
 - **One-Click Updates** - Keep all tools up-to-date with a single command
-- **Ghost Repositories** - 15 custom tools from joemunene-by
-- **Wrapper Scripts** - Simplified interfaces for complex tools
+- **Report Generator** - Create professional HTML pentest reports
+- **Shell Aliases** - Quick commands (gnmap, gsql, etc.)
+- **Auto-Update Checker** - Stay current with latest tools
+- **GitHub Actions CI/CD** - Quality assurance and testing
 - **Defense Tools** - Monitoring and detection capabilities
 - **Forensics Tools** - Digital forensics and incident response
-- **Cross-Category Workflows** - Complete testing chains
 
 ---
 
 ## 🚀 Quick Start
 
-### 5-Minute Setup
+### Traditional Installation
 
 ```bash
-# 1. Clone the repository
+# Clone the repository
 git clone https://github.com/joemunene-by/ghost-toolkit-scripts.git
-
-# 2. Navigate to directory
 cd ghost-toolkit-scripts
 
-# 3. Make scripts executable
+# Make scripts executable
 chmod +x ghost_setup.sh ghost_launcher.sh ghost_update.sh
 
-# 4. Run the automated setup
+# Run the automated setup
 sudo ./ghost_setup.sh
 
-# 5. Launch the toolkit
+# Launch the toolkit
 ./ghost_launcher.sh
+```
+
+### Docker Installation (Recommended)
+
+```bash
+# Build the image
+./docker-ghost.sh build
+
+# Run interactively
+./docker-ghost.sh run
+
+# Or use docker-compose
+./docker-ghost.sh start
 ```
 
 ### First Scan Example
