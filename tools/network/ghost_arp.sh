@@ -45,7 +45,7 @@ case $MODE in
         ;;
     scan|*)
         echo "[*] Standard scan..."
-        sudo arp-scan -I "$INTERFACE -g "$SUBNET/24" 2>/dev/null | tee ~/ghost_toolkit/scans/arp_$(date +%Y%m%d_%H%M%S).txt
+        sudo arp-scan -I "$INTERFACE" -g "$SUBNET/24" 2>/dev/null | tee ~/ghost_toolkit/scans/arp_$(date +%Y%m%d_%H%M%S).txt
         ;;
 esac
 
