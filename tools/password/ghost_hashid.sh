@@ -78,7 +78,7 @@ identify_hash() {
     
     if [[ $h =~ ^\$1\$ ]]; then
         echo "[+] Identified: MD5crypt"
-    elif [[ $h =~ ^\$2[ay]\$\ ]]; then
+    elif [[ $h =~ ^\$2[ay]\$ ]]; then
         echo "[+] Identified: bcrypt"
     elif [[ $h =~ ^\$5\$ ]]; then
         echo "[+] Identified: SHA256crypt"
