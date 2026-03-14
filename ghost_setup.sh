@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "======================================"
-echo "   GHOST TOOLKIT - AUTO SETUP v1.0   "
+echo "   GHOST TOOLKIT - AUTO SETUP v2.0   "
 echo "======================================"
 echo "Setting up your environment..."
 echo ""
@@ -9,16 +9,22 @@ echo ""
 check_dependencies() {
     echo "[*] Checking dependencies..."
 
-    tools=("git" "nodejs" "npm" "python3" "pip3")
+    tools=("git" "nodejs" "npm" "python3" "pip3" "curl" "wget" "nmap" "sqlmap" "nikto" "hydra" "john" "steghide" "binwalk" "exiftool" "foremost")
 
+    missing=()
     for tool in "${tools[@]}"; do
         if command -v $tool &> /dev/null; then
             echo "[+] $tool is installed"
         else
-            echo "[-] $tool is MISSING — installing..."
-            sudo apt install -y $tool
+            echo "[-] $tool is MISSING — adding to install list..."
+            missing+=($tool)
         fi
     done
+
+    if [ ${#missing[@]} -gt 0 ]; then
+        echo "[*] Installing missing tools..."
+        sudo apt update && sudo apt install -y "${missing[@]}"
+    fi
     echo ""
 }
 
@@ -40,16 +46,19 @@ clone_repos() {
         "https://github.com/joemunene-by/DNS-Lookup-and-Domain-Intelligence-Tool"
         "https://github.com/joemunene-by/Key-logger"
         "https://github.com/joemunene-by/advanced-port-scanner"
+        "https://github.com/joemunene-by/ghost-dashboard-v4"
+        "https://github.com/joemunene-by/Simple-Vulnerabilities-Scanner"
+        "https://github.com/joemunene-by/ai-coding-assistant"
     )
 
     for repo in "${repos[@]}"; do
         repo_name=$(basename $repo)
         if [ -d "$repo_name" ]; then
             echo "[~] $repo_name already exists, pulling latest..."
-            git -C $repo_name pull
+            git -C "$repo_name" pull 2>/dev/null || echo "[!] $repo_name pull failed, skipping..."
         else
             echo "[+] Cloning $repo_name..."
-            git clone $repo
+            git clone --quiet "$repo" 2>/dev/null || echo "[!] Failed to clone $repo_name"
         fi
     done
     echo ""
