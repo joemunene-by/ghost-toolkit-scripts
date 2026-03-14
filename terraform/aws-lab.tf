@@ -152,18 +152,20 @@ resource "aws_security_group" "attack" {
   
   # SSH access
   ingress {
-    from_ip_protocol = "tcp"
-    to_port          = 22
-    cidr_blocks      = [var.allowed_ip]
-    description      = "SSH"
+    protocol    = "tcp"
+    from_port   = 22
+    to_port     = 22
+    cidr_blocks = [var.allowed_ip]
+    description = "SSH"
   }
   
   # All outbound
   egress {
-    from_ip_protocol = "-1"
-    to_port          = -1
-    cidr_blocks      = ["0.0.0.0/0"]
-    description      = "All outbound"
+    protocol    = "-1"
+    from_port   = 0
+    to_port     = 0
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "All outbound"
   }
   
   tags = {
@@ -179,25 +181,28 @@ resource "aws_security_group" "target" {
   
   # Allow traffic from attack subnet
   ingress {
-    from_ip_protocol = "-1"
-    to_port          = -1
-    cidr_blocks      = [var.vpc_cidr]
-    description      = "Internal traffic"
+    protocol    = "-1"
+    from_port   = 0
+    to_port     = 0
+    cidr_blocks = [var.vpc_cidr]
+    description = "Internal traffic"
   }
   
   # SSH from outside (for management)
   ingress {
-    from_ip_protocol = "tcp"
-    to_port          = 22
-    cidr_blocks      = [var.allowed_ip]
-    description      = "SSH"
+    protocol    = "tcp"
+    from_port   = 22
+    to_port     = 22
+    cidr_blocks = [var.allowed_ip]
+    description = "SSH"
   }
   
   egress {
-    from_ip_protocol = "-1"
-    to_port          = -1
-    cidr_blocks      = ["0.0.0.0/0"]
-    description      = "All outbound"
+    protocol    = "-1"
+    from_port   = 0
+    to_port     = 0
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "All outbound"
   }
   
   tags = {
