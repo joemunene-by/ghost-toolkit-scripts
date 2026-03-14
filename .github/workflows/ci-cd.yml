@@ -7,8 +7,29 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Ghost Toolkit CI - Build passed"
+      
+      - name: Check shell syntax
+        run: |
+          for f in $(find . -name "*.sh" -type f); do
+            bash -n "$f"
+          done
+      
+      - name: Check directories
+        run: |
+          test -d tools/network
+          test -d tools/web
+          test -d tools/password
+          test -d tools/exploitation
+          test -d tools/forensics
+          test -d tools/defense
+          test -d tools/utilities
+      
+      - name: Count tools
+        run: |
+          count=$(find tools -name "*.sh" | wc -l)
+          echo "Total tools: $count"
+          test $count -gt 30
