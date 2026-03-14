@@ -17,9 +17,21 @@ jobs:
           test -d tools/network
           test -d tools/web
           test -d tools/password
-          echo "Directories OK"
+          test -d tools/exploitation
+          test -d tools/forensics
+          test -d tools/defense
+          test -d tools/utilities
+          echo "All directories exist"
       
       - name: Count tools
         run: |
           count=$(find tools -name "*.sh" | wc -l)
           echo "Found $count tools"
+          test $count -gt 25
+      
+      - name: Check shell scripts
+        run: |
+          for f in $(find . -name "*.sh" -type f); do
+            bash -n "$f" || exit 1
+          done
+          echo "Shell syntax OK"
